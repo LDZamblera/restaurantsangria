@@ -10,7 +10,7 @@ const productosPermitidos = {
   'IMPERIAL LATA': 1800,
 };
 
-const mediosDePagoPermitidos = ['Efectivo', 'Débito', 'Tarjeta de Crédito', 'Transferencia'];
+const mediosDePagoPermitidos = ['efectivo', 'debito', 'tarjeta de credito', 'transferencia'];
 
 const CrearVenta = () => {
   const [productos, setProductos] = useState([{ producto: '', cantidadVendida: 0 }]);
@@ -57,8 +57,8 @@ const CrearVenta = () => {
       return;
     }
 
-    if (!medioPago) {
-      setError('Seleccione un medio de pago');
+    if (!medioPago || !mediosDePagoPermitidos.includes(medioPago.toLowerCase())) {
+      setError('Seleccione un medio de pago válido');
       return;
     }
 
